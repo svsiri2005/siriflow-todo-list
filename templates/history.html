@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="glass-card">
+    <h2>Day-to-Day History</h2>
+    {% for date, group in tasks|groupby('date_created') %}
+    <div class="history-section">
+        <h3 class="history-date">{{ date }}</h3>
+        <ul class="history-items">
+            {% for task in group %}
+            <li class="{{ 'completed-text' if task.is_completed else '' }}">
+                {{ '✅' if task.is_completed else '⏳' }} {{ task.content }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

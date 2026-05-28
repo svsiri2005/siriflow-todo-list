@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="glass-card">
+    <header class="list-header">
+        <h2>Today's Goals</h2>
+        <span class="date-badge">{{ date }}</span>
+    </header>
+
+    <div class="input-group">
+        <input type="text" id="taskInput" placeholder="Add a specific task..." onkeypress="if(event.key==='Enter') addTask()">
+        <button onclick="addTask()" class="add-btn">Add</button>
+    </div>
+
+    <ul class="task-list">
+        {% for task in tasks %}
+        <li class="task-item {{ 'done' if task.is_completed else '' }}">
+            <button class="check-btn" onclick="toggleTask({{ task.id }})">
+                {{ '✅' if task.is_completed else '○' }}
+            </button>
+            <span class="task-text">{{ task.content }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+
+    {% if tasks %}
+    <button class="reset-btn" onclick="clearList()">Reset Today's List</button>
+    {% endif %}
+</div>
+{% endblock %}

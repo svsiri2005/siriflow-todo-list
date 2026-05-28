@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiriFlow | Productivity</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="logo">SiriFlow</div>
+            <ul class="nav-menu">
+                <li class="{{ 'active' if active_page == 'home' }}"><a href="/">🏠 Home</a></li>
+                {% if current_user.is_authenticated %}
+                    <li class="{{ 'active' if active_page == 'tasks' }}"><a href="/tasks">🎯 Today's Tasks</a></li>
+                    <li class="{{ 'active' if active_page == 'history' }}"><a href="/history">📅 Day-to-Day</a></li>
+                    <li><a href="/logout" style="color: #ff6b6b;">🚪 Logout</a></li>
+                {% else %}
+                    <li><a href="/login">🔑 Login</a></li>
+                    <li><a href="/register">📝 Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        <main class="content-area">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

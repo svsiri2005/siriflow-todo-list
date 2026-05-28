@@ -1,0 +1,40 @@
+:root {
+    --bg-color: #f0f2f5;
+    --sidebar-color: #1a1c23;
+    --accent-color: #4f46e5;
+    --text-color: #374151;
+}
+
+body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg-color); color: var(--text-color); }
+
+.app-container { display: flex; min-height: 100vh; }
+
+/* Sidebar */
+.sidebar { width: 260px; background: var(--sidebar-color); color: white; padding: 2rem; position: fixed; height: 100vh; }
+.logo { font-size: 1.8rem; font-weight: 700; color: var(--accent-color); margin-bottom: 3rem; }
+.nav-menu { list-style: none; padding: 0; }
+.nav-menu li { margin-bottom: 1.5rem; }
+.nav-menu a { color: #9ca3af; text-decoration: none; font-size: 1.1rem; transition: 0.3s; }
+.nav-menu a:hover { color: white; padding-left: 8px; }
+
+/* Content Area */
+.content-area { flex: 1; margin-left: 260px; padding: 4rem; display: flex; justify-content: center; }
+.glass-card { background: white; padding: 3rem; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); width: 100%; max-width: 500px; }
+
+/* Components */
+.date-badge { background: #eef2ff; color: var(--accent-color); padding: 5px 12px; border-radius: 20px; font-weight: 600; font-size: 0.8rem; }
+.input-group { display: flex; gap: 10px; margin: 2rem 0; }
+input { flex: 1; padding: 12px; border: 2px solid #e5e7eb; border-radius: 12px; outline: none; }
+input:focus { border-color: var(--accent-color); }
+
+.add-btn { background: var(--accent-color); color: white; border: none; padding: 0 20px; border-radius: 12px; cursor: pointer; }
+
+.task-list { list-style: none; padding: 0; }
+.task-item { display: flex; align-items: center; padding: 12px; border-bottom: 1px solid #f3f4f6; }
+.check-btn { background: none; border: none; font-size: 1.3rem; cursor: pointer; margin-right: 12px; }
+
+.done .task-text { text-decoration: line-through; color: #9ca3af; }
+.completed-text { color: #10b981; }
+
+.reset-btn { width: 100%; margin-top: 2rem; border: 1px solid #fecaca; color: #ef4444; background: none; padding: 10px; border-radius: 12px; cursor: pointer; }
+

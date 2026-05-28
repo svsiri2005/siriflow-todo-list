@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="glass-card">
+    <h2>Create Account</h2>
+    <form method="POST">
+        <div class="input-group" style="flex-direction: column; gap:10px;">
+            <input type="text" name="username" placeholder="Choose Username" required>
+            <input type="password" name="password" placeholder="Create Password" required>
+        </div>
+        <button type="submit" class="add-btn" style="width: 100%; height: 45px; margin-top: 20px;">Register</button>
+    </form>
+    <p style="margin-top:15px;">Already have an account? <a href="/login">Login</a></p>
+</div>
+{% endblock %}
